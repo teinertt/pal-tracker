@@ -11,6 +11,7 @@ public class WelcomeController {
 
     private final String message;
 
+    //Set welcome message and output
     public WelcomeController (@Value("${welcome.message}") String message){
         this.message = message;
     }
