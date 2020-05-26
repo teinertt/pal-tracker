@@ -11,7 +11,7 @@ import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class InMemoryTimeEntryRepositoryTest {
-    @Test
+    @Test  //passed
     public void create() throws Exception {
         InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
 
@@ -27,7 +27,7 @@ public class InMemoryTimeEntryRepositoryTest {
         assertThat(readEntry).isEqualTo(expected);
     }
 
-    @Test
+    @Test  //passed
     public void find() throws Exception {
         InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
 
@@ -41,7 +41,7 @@ public class InMemoryTimeEntryRepositoryTest {
         assertThat(readEntry).isEqualTo(expected);
     }
 
-    @Test
+    @Test  //passed
     public void find_MissingEntry() {
         InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
 
@@ -51,7 +51,7 @@ public class InMemoryTimeEntryRepositoryTest {
         assertThat(readEntry).isNull();
     }
 
-    @Test
+    @Test  //passed
     public void list() throws Exception {
         InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
         repo.create(new TimeEntry(123L, 456L, LocalDate.parse("2017-01-08"), 8));
@@ -64,7 +64,7 @@ public class InMemoryTimeEntryRepositoryTest {
         assertThat(repo.list()).containsExactlyInAnyOrderElementsOf(expected);
     }
 
-    @Test
+    @Test  //passed
     public void update() throws Exception {
         InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
         TimeEntry created = repo.create(new TimeEntry(123L, 456L, LocalDate.parse("2017-01-08"), 8));
@@ -78,7 +78,7 @@ public class InMemoryTimeEntryRepositoryTest {
         assertThat(repo.find(created.getId())).isEqualTo(expected);
     }
 
-    @Test
+    @Test  //passed
     public void update_MissingEntry() {
         InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
 
@@ -89,7 +89,7 @@ public class InMemoryTimeEntryRepositoryTest {
         assertThat(updatedEntry).isNull();
     }
 
-    @Test
+    @Test  //passed
     public void delete() throws Exception {
         InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
 
@@ -101,7 +101,7 @@ public class InMemoryTimeEntryRepositoryTest {
         assertThat(repo.list()).isEmpty();
     }
 
-    @Test
+    @Test  //passed
     public void deleteKeepsTrackOfLatestIdProperly() {
         InMemoryTimeEntryRepository repo = new InMemoryTimeEntryRepository();
 
